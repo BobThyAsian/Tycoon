@@ -59,11 +59,11 @@ public class CharControl : MonoBehaviour
             movement = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
             timeLeft += randomT;
         }
-        if (horizontalAxis > 0) { PlayAnimation(AnimationType.Right); }
-        if (horizontalAxis < 0) { PlayAnimation(AnimationType.Left); }
-        if (verticalAxis > 0) { PlayAnimation(AnimationType.Up); }
-        if (verticalAxis < 0) { PlayAnimation(AnimationType.Down); }
-        if (horizontalAxis == 0 && verticalAxis == 0) { PlayAnimation(AnimationType.Idle); }
+        //if (horizontalAxis > 0) { PlayAnimation(AnimationType.Right); }
+        //if (horizontalAxis < 0) { PlayAnimation(AnimationType.Left); }
+        //if (verticalAxis > 0) { PlayAnimation(AnimationType.Up); }
+        //if (verticalAxis < 0) { PlayAnimation(AnimationType.Down); }
+        //if (horizontalAxis == 0 && verticalAxis == 0) { PlayAnimation(AnimationType.Idle); }
 
     }
 
