@@ -71,8 +71,8 @@ public class CharControl : MonoBehaviour
             start = transform.position;
         }
         moveSpeed = rBody.velocity.magnitude;
-        frameSpeed = moveSpeed * 2f;
-        uiText3.text = "Speed: " + moveSpeed.ToString() + " | Frame speed: " +frameSpeed.ToString() ;
+        frameSpeed = 1/moveSpeed;
+        uiText3.text = "Speed: " + moveSpeed.ToString() + " | Frame speed: " + frameSpeed.ToString() ;
         //uiText3.text = placeX.ToString();
         if (placeX > placeY)
         {
