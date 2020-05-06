@@ -1,9 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SpriteAnimator : MonoBehaviour
 {
+    public event EventHandler OnLoopFirst;
+    public event EventHandler OnLoop;
+
     [SerializeField] private Sprite[] frameArray;
     private int currentFrame;
     private float timer;
@@ -11,7 +15,7 @@ public class SpriteAnimator : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private bool loop = true;
     private bool isPlaying = true;
-
+    private int LoopCount = 0;
 
     private void Awake()
     {
@@ -39,6 +43,16 @@ public class SpriteAnimator : MonoBehaviour
             else
             { 
                 spriteRenderer.sprite = frameArray[currentFrame]; 
+            }
+
+            if(currentFrame == 0)
+            {
+                LoopCount++;
+                if(LoopCount == 1)
+                {
+                    if (OnLoopFirst != null) OnLoopFirst(this, EventArgs.Empty);
+                }
+                if (OnLoop != null) OnLoop(this, EventArgs.Empty);
             }
 
         }

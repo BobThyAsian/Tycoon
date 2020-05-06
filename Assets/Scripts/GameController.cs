@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using CodeMonkey.Utils;
 using UnityEngine.UI;
-using System;
-using System.Linq;
+//using System;
+//using System.Linq;
 
 public class GameController : MonoBehaviour
 {
@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
     //private Text uiText3;
     //private Text uiText4;
     private Collider2D[] collider2DArray;
-    private List<CharControl> people;
+    public List<CharControl> people;
 
 
     private void Awake()
@@ -78,7 +78,6 @@ public class GameController : MonoBehaviour
                     charControl.SetSelectedVisible(true);
                     people.Add(charControl);
                 }
-                Debug.Log(collider2D);
             }
         }
 
@@ -95,4 +94,5 @@ public class GameController : MonoBehaviour
             uiText4.text = "People: " + String.Join(",", people);
         }*/
     }
+
 }

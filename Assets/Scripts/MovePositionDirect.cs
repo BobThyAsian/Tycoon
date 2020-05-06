@@ -14,7 +14,7 @@ public class MovePositionDirect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 moveDir = (movePosition - transform.position).normalized;
+        Vector3 moveDir = (Vector3.Distance(transform.position, movePosition) < .1f) ? Vector3.zero : (movePosition - transform.position).normalized;
         GetComponent<IMoveVelocity>().SetVelocity(moveDir);
     }
 }

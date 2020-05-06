@@ -25,26 +25,18 @@ public class CharControl : MonoBehaviour
     private AnimationType activeAnimationType;
     private GameObject selectedGameObject;
     public Rigidbody2D rBody;
-    //public Vector2 direction;
-    public Vector3 position;
-    public Vector3 start;
-    //private float moveSpeed;
-    //private float frameSpeed;
     private float horizontalAxis;
     private float verticalAxis;
-    //private float randomT;
-    //Vector3 movement;
-    //public float timeLeft;
-    //public Text uiText1;
-    public Text uiText2;
+    //public Text uiText2;
     public Text uiText3;
+    private PlayerMovementMouse moveScript;
 
 
     private void Awake()
     {
         selectedGameObject = transform.Find("Selected").gameObject;
+        moveScript = GetComponent<PlayerMovementMouse>();
         SetSelectedVisible(false);
-        start = position = transform.position;
     }
     // Start is called before the first frame update
     void Start()
@@ -53,12 +45,12 @@ public class CharControl : MonoBehaviour
         rBody = GetComponent<Rigidbody2D>();
 
         //uiText1 = GameObject.Find("GuestMisc").GetComponent<Text>();
-        uiText2 = GameObject.Find("GuestBug").GetComponent<Text>();
+        //uiText2 = GameObject.Find("GuestBug").GetComponent<Text>();
         uiText3 = GameObject.Find("GuestInfo").GetComponent<Text>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         horizontalAxis = rBody.velocity.x;
         verticalAxis = rBody.velocity.y;
@@ -67,29 +59,28 @@ public class CharControl : MonoBehaviour
 
         if (placeX > placeY)
         {
-            if (rBody.velocity.x > 0f) { PlayAnimation(AnimationType.Right); }
-            if (rBody.velocity.x < 0f) { PlayAnimation(AnimationType.Left); }
-            Debug.Log("l/r");
+            if (rBody.velocity.x > 0f) { PlayAnimation(AnimationType.Right); Debug.Log("right"); }
+            if (rBody.velocity.x < 0f) { PlayAnimation(AnimationType.Left); Debug.Log("left"); }
+            
         }
         if (placeY > placeX)
         {
-            if (rBody.velocity.y > 0f) { PlayAnimation(AnimationType.Up); }
-            if (rBody.velocity.y < 0f) { PlayAnimation(AnimationType.Down); }
-            Debug.Log("up/down");
+            if (rBody.velocity.y > 0f) { PlayAnimation(AnimationType.Up); Debug.Log("up"); }
+            if (rBody.velocity.y < 0f) { PlayAnimation(AnimationType.Down);  Debug.Log("down"); }
+            
         }
-        if (rBody.velocity.magnitude == 0 ) { PlayAnimation(AnimationType.Idle); }
-        uiText3.text = "VX: " + rBody.velocity.x.ToString() + " | VY: " + rBody.velocity.ToString();
-        uiText2.text = "Start: " + start.ToString() + " | Pos: " + position.ToString();
-        //start = transform.position;
+        if (rBody.velocity.magnitude == 0 ) { PlayAnimation(AnimationType.Idle); Debug.Log("idle"); }
+
+        uiText3.text = "VX: " + rBody.velocity.x.ToString() + " | VY: " + rBody.velocity.magnitude.ToString();
+        
         
     }
 
-    void FixedUpdate()
+    void Update()
     {
     }
     private void PlayAnimation(AnimationType animationType)
     {
-        Debug.Log(animationType);
         if (animationType != activeAnimationType)
         {
             activeAnimationType = animationType;
@@ -114,10 +105,11 @@ public class CharControl : MonoBehaviour
         }
     }
 
-
+    
     public void SetSelectedVisible(bool visible)
     {
         selectedGameObject.SetActive(visible);
+        moveScript.enabled = visible;
     }
 }
 

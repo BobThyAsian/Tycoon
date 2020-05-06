@@ -96,6 +96,9 @@ GameObject:
   - component: {fileID: 7673524451300090434}
   - component: {fileID: -3074886215245273099}
   - component: {fileID: 1538757358430135341}
+  - component: {fileID: -8330166330708709015}
+  - component: {fileID: 2399480044631470407}
+  - component: {fileID: 2879270183928027945}
   m_Layer: 0
   m_Name: Person
   m_TagString: Person
@@ -221,10 +224,8 @@ MonoBehaviour:
   - {fileID: -7331335338489883693, guid: 4893fb90afc43f647a061bcf8c2a4787, type: 3}
   - {fileID: 1584412570633838273, guid: 4893fb90afc43f647a061bcf8c2a4787, type: 3}
   rBody: {fileID: 0}
-  uiText1: {fileID: 0}
   uiText2: {fileID: 0}
   uiText3: {fileID: 0}
-  timeLeft: 0
 --- !u!114 &5437468090639827961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,3 +314,40 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-8330166330708709015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5437468090639827960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bafcf39403c97149a8f24936a86cd37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 2
+--- !u!114 &2399480044631470407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5437468090639827960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53a39ea25bbe0584e9f62d7051ed0874, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2879270183928027945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5437468090639827960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 859eb4be14683dc4a88ce1a335cc6ecc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
