@@ -12,6 +12,7 @@ public class PlayerMovementMouse : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             GetComponent<MovePositionDirect>().SetMovePosition(UtilsClass.GetMouseWorldPosition());
+            Debug.Log("right click");
         }
     }
 }

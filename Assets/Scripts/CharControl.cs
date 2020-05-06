@@ -59,17 +59,17 @@ public class CharControl : MonoBehaviour
 
         if (placeX > placeY)
         {
-            if (rBody.velocity.x > 0f) { PlayAnimation(AnimationType.Right); Debug.Log("right"); }
-            if (rBody.velocity.x < 0f) { PlayAnimation(AnimationType.Left); Debug.Log("left"); }
+            if (rBody.velocity.x > 0f) { PlayAnimation(AnimationType.Right); /*Debug.Log("right");*/ }
+            if (rBody.velocity.x < 0f) { PlayAnimation(AnimationType.Left);/* Debug.Log("left");*/ }
             
         }
         if (placeY > placeX)
         {
-            if (rBody.velocity.y > 0f) { PlayAnimation(AnimationType.Up); Debug.Log("up"); }
-            if (rBody.velocity.y < 0f) { PlayAnimation(AnimationType.Down);  Debug.Log("down"); }
+            if (rBody.velocity.y > 0f) { PlayAnimation(AnimationType.Up); /*Debug.Log("up");*/ }
+            if (rBody.velocity.y < 0f) { PlayAnimation(AnimationType.Down);  /*Debug.Log("down");*/ }
             
         }
-        if (rBody.velocity.magnitude == 0 ) { PlayAnimation(AnimationType.Idle); Debug.Log("idle"); }
+        if (rBody.velocity.magnitude == 0 ) { PlayAnimation(AnimationType.Idle); /*Debug.Log("idle");*/ }
 
         uiText3.text = "VX: " + rBody.velocity.x.ToString() + " | VY: " + rBody.velocity.magnitude.ToString();
         

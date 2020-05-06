@@ -10,7 +10,7 @@ public class GridBase
     private float cellSize;
     private int[,] gridArray;
     private Vector3 originPosition;
-    private TextMesh[,] debugArray;
+    //private TextMesh[,] debugArray;
 
     public GridBase()
     {
@@ -29,15 +29,15 @@ public class GridBase
         this.cellSize = cellSize;
         this.originPosition = originPosition;
 
-        debugArray = new TextMesh[width, height]; 
+        //debugArray = new TextMesh[width, height]; 
         gridArray = new int[width, height];
         
         for(int x=0; x < gridArray.GetLength(0); x++)
         {
             for (int y=0; y < gridArray.GetLength(1); y++)
             {
-                debugArray[x,y] = UtilsClass.CreateWorldText(gridArray[x, y].ToString(), null, GetWorldPosition(x, y) + new Vector3(cellSize,cellSize) *.5f, 8, Color.white, TextAnchor.MiddleCenter);
-                Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x, y + 1), Color.white, 100f );
+                //debugArray[x,y] = UtilsClass.CreateWorldText(gridArray[x, y].ToString(), null, GetWorldPosition(x, y) + new Vector3(cellSize,cellSize) *.5f, 8, Color.white, TextAnchor.MiddleCenter);
+                Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x, y +1), Color.white, 100f );
                 Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x+1, y), Color.white, 100f);
             }
         }
@@ -47,7 +47,7 @@ public class GridBase
         SetValue(0, 0, 50);
     }
 
-    private Vector3 GetWorldPosition(int x, int y)
+    private Vector3 GetWorldPosition(float x, float y)
     {
         return new Vector3(x, y) * cellSize + originPosition;
     }
@@ -63,7 +63,7 @@ public class GridBase
         if (x >= 0 && y >= 0 && x < width && y < height)
         {
             gridArray[x, y] = value;
-            debugArray[x, y].text = gridArray[x, y].ToString();
+            //debugArray[x, y].text = gridArray[x, y].ToString();
         }
     }
 

@@ -8,7 +8,7 @@ public class GroundGrid : MonoBehaviour
     void Start()
     {
         GridBase grid = new GridBase();
-        grid.Build(10,10, 1f, new Vector3(-11,-11));
+        grid.Build(25,30, 1f, new Vector3(-10,-10));
 
     }
 

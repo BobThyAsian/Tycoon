@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
 
-    [SerializeField] private CameraFollow cameraFollow;
+    [SerializeField]private CameraFollow cameraFollow;
     [SerializeField]private float zoomMin;
     [SerializeField]private float zoomMax;
     private GameController gameController;
@@ -19,13 +19,18 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        cameraFollow = Camera.main.gameObject.GetComponent<CameraFollow>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
-        cameraFollow.Setup(() => cameraPosition, () => orthoSize, true, true);
+        if (cameraFollow != null)
+        {
+            cameraFollow.Setup(() => cameraPosition, () => orthoSize, true, false);
+        }
+        GridBase grid = new GridBase();
+        grid.Build(25, 30, 1f, new Vector3(-10, -10));
         //uiText1 = GameObject.Find("GuestBug").GetComponent<Text>();
     } 
 
@@ -66,6 +71,8 @@ public class GameManager : MonoBehaviour
 
     public void CreatePerson()
     {
-        GameObject person = Instantiate(personPrefab, new Vector3(0f,0f,0f), Quaternion.identity) as GameObject;
+        GameObject person = Instantiate(personPrefab, new Vector3(10f,10f,1f), Quaternion.identity) as GameObject;
+        //person.GetComponent
+        person.name = "New Person";
     }
 }

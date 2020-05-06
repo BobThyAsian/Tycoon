@@ -233,7 +233,7 @@ namespace CodeMonkey.Utils {
         // Get Mouse Position in World with Z = 0f
         public static Vector3 GetMouseWorldPosition() {
             Vector3 vec = GetMouseWorldPositionWithZ(Input.mousePosition, Camera.main);
-            vec.z = 0f;
+            vec.z = 1f;
             return vec;
         }
         public static Vector3 GetMouseWorldPositionWithZ() {
